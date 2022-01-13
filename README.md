@@ -8,7 +8,8 @@ Project 3 - E-Commerce Store (Team Project)
 * [Technologies Used](#technologies-used)
 * [Project Requirements](#project-requirements)
 * [Features](#features)
-* [Getting Started](#getting-started)
+* [Getting Started - Backend](#getting-started-backend)
+* [Getting Started - Frontend](#getting-started-frontend)
 * [Entity Relationship Diagram](#entity-relationship-diagram)
 * [File Structure](#file-structure)
 * [Contributors](#contributors)
@@ -72,9 +73,38 @@ To-do list:
 * Ability to view orders history as a user
 * Ability to contact customer support (live chat)
 
-## Getting Started
+## Getting Started Backend
+
 * git clone `https://github.com/revature-rev-tech/project-3-back-end.git`
+
+TO RUN APPLICATION LOCALLY:
+----
+1. Open IDE and import project to workspace
+2. Navigate to src/main/java -> com.project3.revtech package -> RevtechApplication.java
+3. Run as Java Application to start the server
+4. Application and H2 database will run on server.port=7777
+5. Once the application is running, on your web browser navigate to `http://localhost:7777/h2-console` in order to access H2 console
+
+THINGS TO NOTE:
+----
+* The schema.sql and data.sql files located in src/main/resources will auto generate the tables and data within the H2 database
+* The application.yml file contains the AWS credentials to access the S3 bucket which we use to host the images from product image upload
+
+TO DEPLOY THE APPLICATION REMOTELY:
+----
+1. Navigate to http://ec2-50-16-74-43.compute-1.amazonaws.com:8080/jenkins/ to login to Jenkins connection to EC2
+*`username: jenkinsadmin` `password: Password123!`
+2. `Project-3-Back-End` is the Jenkins Job which handles the building of the backend (along with H2 database)
+3. `Project-3-Back-End-Pipeline` is the Jenkins Job which deploys the backend (allows working with the back end remotely)
+
+THINGS TO NOTE:
+----
+* To access the H2 database console deployed on EC2 Instance, navigate to http://ec2-50-16-74-43.compute-1.amazonaws.com:7777/h2-console
+* `Project-3-Front-End-Beta` is the Jenkins Job which handles the building of the frontend (which is connected to and hosted by AWS S3)
+
+## Getting Started Frontend
 * git clone `https://github.com/revature-rev-tech/project-3-front-end-beta.git`
+
 
 ## Entity Relationship Diagram
 ![ERD Image](https://i.postimg.cc/gjd6NK4h/ERD.png)
